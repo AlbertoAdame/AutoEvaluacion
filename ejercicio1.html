@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="Iniciar">Inicializa Array</button>
+
+</body>
+<script>
+    let boton = document.getElementById('Iniciar')
+    let arrayNombres=[]
+    let nombre=''
+    let numero=0
+    let letra=''
+
+    boton.onclick=function inicializar() {
+
+        for (let index = 0; index < 5; index++) {
+            
+            numero=0
+            nombre=prompt('Dame un nombre: ')
+            while(numero<index){
+                if (arrayNombres[numero]!=nombre){
+                    numero++
+                }
+                else{
+                    nombre=prompt('Dame otro nombre, ese ya existe: ')
+                    numero=0
+                } 
+
+                
+            }
+
+            arrayNombres.push(nombre)
+        }
+
+        arrayNombres.sort()
+
+        for (let index = 0; index < 5; index++) {
+            nombre=arrayNombres[index]
+            letra=nombre.charAt(0)
+            console.log(letra.toUpperCase())
+        }
+    }
+
+
+</script>
+</html>
+
+<!-- Crea	la página	ejercicio1.html.	Esta	página	tendrá	un	botón	cuyo	nombre	será	“Inicializa	
+array”.	Al	pulsar	el	botón	se	llamará	a	la	función javascript “inicializar()”.	Esta	función	
+javascript	solicitará 5	nombres	mediante	cuadros	de	diálogo que	deberán	ir	apareciendo	
+de	uno	en	uno.	Deberá	crearse	un	arrayNombres	vacío	al	que	se	irán	añadiendo	de	uno	en	uno	
+cada	uno	de	los	nombres	introducidos. Deberá	controlarse	que	no	se	pueden	introducir	
+en	el	arrayNombres	nombres	repetidos.	Si	el	nombre	ya	existe	en	el	arrayNombres	deberá	mostrarse	una	
+alerta	indicando	que	ya	existe	y	que	debe	introducir	otro	nombre.	Una	vez	introducidos	
+los	5	nombres	deberá	mostrarse	por	consola	la	primera	letra en	mayúscula de	cada	uno	
+de	los	nombres	introducidos	en	el	arrayNombres	ordenadas	por	orden	alfabético. -->

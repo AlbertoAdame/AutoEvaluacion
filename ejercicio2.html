@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        h2 { 
+            text-align: center;
+        }
+
+        td{         
+            text-align: center;
+            width: 15em;
+        }
+
+        table{
+            border-collapse: collapse;
+        }
+
+        #titulo{
+            font-weight: bold;
+        }
+      </style>
+</head>
+<body>
+
+    <table id="tabla" border="1">
+        <caption><h2>Numero total de empleados: 3</h2></caption>
+        <tr>
+            <td id="titulo">Número de empleado</td>
+            <td id="titulo">DNI</td>
+            <td id="titulo">Nombre</td>
+            <td id="titulo">Apellidos</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>77332344K</td>
+            <td>María</td>
+            <td>Pérez	Izquierdo</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>23445677J</td>
+            <td>Javier</td>
+            <td>López	Martínez</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>12345678H</td>
+            <td>Manuel</td>
+            <td>Sánchez	Martos</td>
+        </tr>
+    </table><br>
+
+    <input type="button" value="Insertar" onclick="insertar();">
+    <input type="button" value="Borrar" onclick="borrar();">
+
+</body>
+<script>
+let contador=4;
+function insertar(){
+    var c1 = contador++
+    var c2=prompt("Introduce el dni del empleado: ")
+    var c3=prompt("Introduce el nombre del empleado: ")
+    var c4=prompt("Introduce los apellidos del empleado: ")
+
+    var tabla=document.getElementById("tabla")
+    
+    var nuevaColumna1=document.createElement("td")
+    var nuevaColumna2=document.createElement("td")
+    var nuevaColumna3=document.createElement("td")
+    var nuevaColumna4=document.createElement("td")
+    
+
+    nuevaColumna1.appendChild(document.createTextNode(c1))
+    nuevaColumna2.appendChild(document.createTextNode(c2))
+    nuevaColumna3.appendChild(document.createTextNode(c3))
+    nuevaColumna4.appendChild(document.createTextNode(c4))
+
+    var insertar=document.createElement("tr")
+   
+    insertar.appendChild(nuevaColumna1)
+    insertar.appendChild(nuevaColumna2)
+    insertar.appendChild(nuevaColumna3)
+    insertar.appendChild(nuevaColumna4)
+
+    tabla.appendChild(insertar)
+
+}
+
+function borrar(){
+    var posicion=prompt("Que empleado desea borrar (Introduce su DNI): ")
+    var borrarFila=document.getElementsByTagName("td")[posicion-1]
+    borrarFila.remove()
+
+}
+
+function modificar(){
+
+}
+
+
+</script>
+
+</html>
